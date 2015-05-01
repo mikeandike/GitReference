@@ -24,12 +24,10 @@ static NSString * const Reference = @"reference";
     // Do any additional setup after loading the view.
     
     
-    CGFloat screenWidth = CGRectGetWidth(self.view.frame);
+    CGFloat screenWidth = self.view.frame.size.width;
     
     UIScrollView *scrollView1 = [UIScrollView new];
     scrollView1.frame = CGRectMake(15, 20, screenWidth - 30, 520);
-    CGSize contentSize = CGSizeMake(screenWidth - 30, 650);
-    scrollView1.contentSize = contentSize;
     scrollView1.backgroundColor = [UIColor redColor];
     [self.view addSubview:scrollView1];
     
@@ -67,6 +65,8 @@ static NSString * const Reference = @"reference";
         top += (heightForReference + margin * 2);
         
     }
+    CGSize contentSize = CGSizeMake(screenWidth - 30, top);
+    scrollView1.contentSize = contentSize;
 }
 
 
